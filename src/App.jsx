@@ -5,12 +5,11 @@ import Home from "./routes/Home.jsx";
 import Pedido from "./routes/Pedido.jsx";
 // style
 import { Box } from "@chakra-ui/react";
-import "./App.css";
 
 function App() {
   return (
     <>
-      <Box width="100vw" bg="gray.100">
+      <Box width="100vw">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />

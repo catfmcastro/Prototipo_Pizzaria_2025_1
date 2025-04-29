@@ -1,9 +1,8 @@
 // hooks
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { defaultSystem } from "@chakra-ui/react";
-import { Provider } from "./components/ui/provider.jsx";
 // components
+import { Provider } from "./components/ui/provider.jsx";
 import App from "./App.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
