@@ -3,9 +3,12 @@ import { createSystem, defaultConfig } from "@chakra-ui/react";
 const system = createSystem(defaultConfig, {
   theme: {
     tokens: {
-      fonts: {
-        heading: { value: `'Figtree', sans-serif` },
-        body: { value: `'Figtree', sans-serif` },
+      colors: {
+        red: "#73020C",
+        wine: "#590209",
+        yellow: "#F2B872",
+        mustard: "#D9985F",
+        black: "#0D0D0D",
       },
     },
   },
