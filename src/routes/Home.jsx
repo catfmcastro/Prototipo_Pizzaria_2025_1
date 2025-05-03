@@ -1,10 +1,12 @@
-// import
-
+import Navbar from "../components/form/Navbar"
 
 function Home() {
-    return (
-    <h1>HOME</h1>
-    );
+  return (
+    <>
+        <Navbar />
+      <h1>HOME</h1>
+    </>
+  );
 }
 
 export default Home;
