@@ -26,7 +26,7 @@ function Pedido() {
     0
   );
 
-  const items = [
+  const pagamentos = [
     { label: "Option 1", value: "1" },
     { label: "Option 2", value: "2" },
     { label: "Option 3", value: "3" },
@@ -92,11 +92,11 @@ function Pedido() {
 
             <RadioGroup.Root defaultValue="1">
               <HStack gap="6">
-                {items.map((item) => (
-                  <RadioGroup.Item key={item.value} value={item.value}>
+                {pagamentos.map((pagamento) => (
+                  <RadioGroup.Item key={pagamento.value} value={pagamento.value}>
                     <RadioGroup.ItemHiddenInput />
                     <RadioGroup.ItemIndicator />
-                    <RadioGroup.ItemText>{item.label}</RadioGroup.ItemText>
+                    <RadioGroup.ItemText>{pagamento.label}</RadioGroup.ItemText>
                   </RadioGroup.Item>
                 ))}
               </HStack>
