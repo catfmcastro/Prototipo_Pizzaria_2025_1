@@ -6,12 +6,8 @@ function Navbar() {
     <>
       <Box bg={"yellow"}>
         <Flex minH={"60px"} align={"center"} py={{ base: 2 }} px={{ base: 4 }}>
-          <Button bg={'transparent'} href="/">
-            <Text
-              fontFamily={"heading"} color={'black'}
-            >
+          <Button bg={'transparent'} href={"#"}>
               PIZZARIA
-            </Text>
           </Button>
           <Stack
             flex={{ base: 1, md: 0 }}
@@ -24,7 +20,7 @@ function Navbar() {
               fontSize={"sm"}
               fontWeight={400}
               variant={"link"}
-              href={"#"}
+              href={"cardapio"}
             >
               Cardápio
             </Button>
@@ -37,15 +33,6 @@ function Navbar() {
             >
               Meu Pedido
             </Button>
-            <Button
-              as={"a"}
-              fontSize={"sm"}
-              fontWeight={400}
-              variant={"link"}
-              href={"#"}
-            >
-              Ação 3
-            </Button>
           </Stack>
 
           <Stack
@@ -57,19 +44,10 @@ function Navbar() {
           >
             <Button
               as={"a"}
-              fontSize={"sm"}
-              fontWeight={400}
-              variant={"link"}
-              href={"#"}
-            >
-              Sign In
-            </Button>
-            <Button
-              as={"a"}
               display={{ base: "none", md: "inline-flex" }}
               fontSize={"sm"}
               fontWeight={600}
-              href={"#"}
+              href={"perfil"}
             >
               Perfil
             </Button>
