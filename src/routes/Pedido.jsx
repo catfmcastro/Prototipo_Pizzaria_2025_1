@@ -27,9 +27,9 @@ function Pedido() {
   );
 
   const pagamentos = [
-    { label: "Option 1", value: "1" },
-    { label: "Option 2", value: "2" },
-    { label: "Option 3", value: "3" },
+    { label: "Crédito", value: "1" },
+    { label: "Débito", value: "2" },
+    { label: "Pix", value: "3" },
   ];
 
   return (

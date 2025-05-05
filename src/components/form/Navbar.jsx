@@ -1,12 +1,13 @@
 // components
 import { Box, Flex, Button, Stack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom"; 
 
 function Navbar() {
   return (
     <>
       <Box bg={"yellow"}>
         <Flex minH={"60px"} align={"center"} py={{ base: 2 }} px={{ base: 4 }}>
-          <Button bg={'transparent'} href={"#"}>
+          <Button as={Link} to={"/"} bg={'transparent'}>
               PIZZARIA
           </Button>
           <Stack
