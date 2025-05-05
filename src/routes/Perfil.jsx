@@ -184,22 +184,6 @@ function Perfil() {
               </Editable.Root>
             </Stack>
 
-            <Flex mt={6} justify="space-between">
-              {isEditing ? (
-                <>
-                  <Button colorScheme="red" onClick={handleSave}>
-                    Salvar
-                  </Button>
-                  <Button variant="outline" onClick={() => setIsEditing(false)}>
-                    Cancelar
-                  </Button>
-                </>
-              ) : (
-                <Button colorScheme="red" onClick={() => setIsEditing(true)}>
-                  Editar Perfil
-                </Button>
-              )}
-            </Flex>
           </Box>
         </Flex>
       </Box>

@@ -7,7 +7,7 @@ import {
   Stack,
   Flex,
   RadioGroup,
-  HStack
+  HStack,
 } from "@chakra-ui/react";
 import Navbar from "../components/form/Navbar";
 
@@ -71,6 +71,7 @@ function Pedido() {
               mt={6}
               w="full"
               onClick={() => setCurrentTab("finalizarPedido")}
+              bg={"mustard"}
             >
               Finalizar Pedido
             </Button>
@@ -93,7 +94,10 @@ function Pedido() {
             <RadioGroup.Root defaultValue="1">
               <HStack gap="6">
                 {pagamentos.map((pagamento) => (
-                  <RadioGroup.Item key={pagamento.value} value={pagamento.value}>
+                  <RadioGroup.Item
+                    key={pagamento.value}
+                    value={pagamento.value}
+                  >
                     <RadioGroup.ItemHiddenInput />
                     <RadioGroup.ItemIndicator />
                     <RadioGroup.ItemText>{pagamento.label}</RadioGroup.ItemText>
@@ -108,6 +112,7 @@ function Pedido() {
               w="full"
               isDisabled={!selectedPayment}
               onClick={() => alert("Pedido Finalizado!")}
+              bg={"mustard"}
             >
               Confirmar Pagamento
             </Button>
