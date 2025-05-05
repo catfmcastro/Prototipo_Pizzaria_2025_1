@@ -17,6 +17,7 @@ import Navbar from "../components/form/Navbar";
 function Perfil() {
   // Estado para armazenar as informações do usuário
   const [userInfo, setUserInfo] = useState({
+    nome: "fulano da silva",
     cpf: "12345678901",
     email: "usuario@email.com",
     telefone: "11999999999",
@@ -62,8 +63,36 @@ function Perfil() {
               Meu Perfil
             </Heading>
             <Stack spacing={4}>
+              <h1>Nome</h1>
+              <Editable.Root
+                defaultValue={userInfo.nome}
+                onValueChange={handleChange}
+              >
+                <Editable.Preview />
+                <Editable.Input />
+                <Editable.Control>
+                  <Editable.EditTrigger asChild>
+                    <IconButton variant="ghost" size="xs">
+                      <LuPencilLine />
+                    </IconButton>
+                  </Editable.EditTrigger>
+                  <Editable.CancelTrigger>
+                    <IconButton variant="ghost" size="xs">
+                      <LuPencilLine />
+                    </IconButton>
+                  </Editable.CancelTrigger>
+                  <Editable.SubmitTrigger asChild>
+                    <IconButton variant="outline" size="xs">
+                      <LuCheck />
+                    </IconButton>
+                  </Editable.SubmitTrigger>
+                </Editable.Control>
+              </Editable.Root>
               <h1>CPF</h1>
-              <Editable.Root defaultValue={userInfo.cpf} onValueChange={handleChange}>
+              <Editable.Root
+                defaultValue={userInfo.cpf}
+                onValueChange={handleChange}
+              >
                 <Editable.Preview />
                 <Editable.Input />
                 <Editable.Control>

@@ -31,7 +31,7 @@ function Home() {
               exclusivas e saborear as melhores pizzas da cidade!
             </Text>
             <Stack direction={{ base: "column", sm: "row" }} spacing={4}>
-              <Button colorScheme="red" size="lg" as="a" href="/signup">
+              <Button colorScheme="red" bg={"red"} size="lg" as="a" href="/signup">
                 Cadastre-se
               </Button>
               <Button
@@ -40,6 +40,7 @@ function Home() {
                 size="lg"
                 as="a"
                 href="/login"
+                bg={"yellow"}
               >
                 Fazer Login
               </Button>
@@ -72,7 +73,7 @@ function Home() {
               <Text fontSize="sm" color="gray.600" mb={4}>
                 Compre 1 pizza família e ganhe uma Coca-Cola 2L grátis!
               </Text>
-              <Button colorScheme="red" size="sm">
+              <Button colorScheme="red" bg={"red"} size="sm">
                 Aproveitar
               </Button>
             </Box>
@@ -90,7 +91,7 @@ function Home() {
               <Text fontSize="sm" color="gray.600" mb={4}>
                 Peça 2 pizzas médias por apenas R$ 49,90!
               </Text>
-              <Button colorScheme="red" size="sm">
+              <Button colorScheme="red" size="sm" bg={"red"}>
                 Aproveitar
               </Button>
             </Box>

@@ -7,7 +7,7 @@ function Navbar() {
     <>
       <Box bg={"yellow"}>
         <Flex minH={"60px"} align={"center"} py={{ base: 2 }} px={{ base: 4 }}>
-          <Button as={Link} to={"/"} bg={'transparent'}>
+          <Button as={Link} to={"/"} color={"wine"} bg={'transparent'}>
               PIZZARIA
           </Button>
           <Stack
@@ -49,6 +49,7 @@ function Navbar() {
               fontSize={"sm"}
               fontWeight={600}
               href={"perfil"}
+              bg={"mustard"}
             >
               Perfil
             </Button>

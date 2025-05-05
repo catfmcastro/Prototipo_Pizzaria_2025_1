@@ -62,8 +62,8 @@ const itens = [
   return (
     <>
       <Navbar />
-      <Box bg="gray.50" minH="100vh" py={10} px={5}>
-        <Heading as="h1" size="xl" textAlign="center" color="red.600" mb={5}>
+      <Box bg="gray.50" minH="100vh" py={8} px={5}>
+        <Heading as="h1" size="2xl" textAlign="center" color="red.600" mb={5}>
           Cardápio
         </Heading>
         <Text textAlign={"center"} mb={10}>
@@ -89,7 +89,7 @@ const itens = [
               <Text fontSize="lg" fontWeight="bold" color="gray.800" mb={4}>
                 R$ {item.preco.toFixed(2)}
               </Text>
-              <Button colorScheme="red" size="sm">
+              <Button colorScheme="red" bg={"red"} size="sm">
                 Adicionar ao Pedido
               </Button>
             </Box>
