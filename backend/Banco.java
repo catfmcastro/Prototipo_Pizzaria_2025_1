@@ -12,17 +12,22 @@ import com.sun.net.httpserver.HttpExchange;
 public class Banco {
 
     static class Conexao {
-        final String url = "jdbc:postgresql://localhost:5432/postgres?targetServerType=primary";
+        final String url = "jdbc:postgresql://ep-holy-cherry-a81euyf1-pooler.eastus2.azure.neon.tech/neondb?sslmode=require";
         final Properties props = new Properties();
         private Connection connection;
 
         public Conexao() {
-            props.setProperty("user", "icpostgresql");
-            props.setProperty("password", "1234");
+            props.setProperty("user", "neondb_owner");
+            props.setProperty("password", "npg_3EpMu1XgjGoY");
         }
 
         public Connection getConexao() throws SQLException {
             if (connection == null || connection.isClosed()) {
+                try {
+                    Class.forName("org.postgresql.Driver"); // Explicitly load the PostgreSQL driver
+                } catch (ClassNotFoundException e) {
+                    throw new SQLException("PostgreSQL JDBC Driver not found.", e);
+                }
                 connection = DriverManager.getConnection(url, props);
             }
             return connection;
