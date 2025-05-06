@@ -1,6 +1,11 @@
 package backend;
-
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
 
 public class Sql {
 
@@ -11,9 +16,32 @@ public class Sql {
     }
 
     // Métodos para a tabela "usuario"
+    // http://localhost:8080/usuario
     public String getUsuarios() throws SQLException {
-        return get("SELECT * FROM usuario;");
+    String query = "SELECT * FROM usuario;";
+    try (Statement stmt = connection.createStatement();
+         ResultSet rs = stmt.executeQuery(query)) {
+
+        Gson gson = new Gson();
+        ResultSetMetaData metaData = rs.getMetaData();
+        int columnCount = metaData.getColumnCount();
+
+        // Create a list of maps to represent rows
+        List<Map<String, Object>> rows = new ArrayList<>();
+
+        while (rs.next()) {
+            Map<String, Object> row = new HashMap<>();
+            for (int i = 1; i <= columnCount; i++) {
+                String columnName = metaData.getColumnName(i);
+                row.put(columnName, rs.getObject(i));
+            }
+            rows.add(row);
+        }
+
+        // Convert the list of rows to JSON using Gson
+        return gson.toJson(rows);
     }
+}
 
     public String postUsuario(String cpf, String email, String senha, String telefone) throws SQLException {
         String query = "INSERT INTO usuario (cpf, email, senha, telefone) VALUES (?, ?, ?, ?);";
@@ -37,8 +65,31 @@ public class Sql {
     }
 
     // Métodos para a tabela "endereco"
+    // http://localhost:8080/endereco
     public String getEnderecos() throws SQLException {
-        return get("SELECT * FROM endereco;");
+        String query = "SELECT * FROM endereco;";
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+    
+            Gson gson = new Gson();
+            ResultSetMetaData metaData = rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+    
+            // Cria uma lista de mapas para representar as linhas
+            List<Map<String, Object>> rows = new ArrayList<>();
+    
+            while (rs.next()) {
+                Map<String, Object> row = new HashMap<>();
+                for (int i = 1; i <= columnCount; i++) {
+                    String columnName = metaData.getColumnName(i);
+                    row.put(columnName, rs.getObject(i));
+                }
+                rows.add(row);
+            }
+    
+            // Converte a lista de linhas para JSON usando Gson
+            return gson.toJson(rows);
+        }
     }
 
     public String postEndereco(String rua, String numero, String bairro, long cep, long complemento, long idUsuario) throws SQLException {
@@ -65,8 +116,31 @@ public class Sql {
     }
 
     // Métodos para a tabela "pedido"
+    // http://localhost:8080/pedido
     public String getPedidos() throws SQLException {
-        return get("SELECT * FROM pedido;");
+        String query = "SELECT * FROM pedido;";
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+    
+            Gson gson = new Gson();
+            ResultSetMetaData metaData = rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+    
+            // Cria uma lista de mapas para representar as linhas
+            List<Map<String, Object>> rows = new ArrayList<>();
+    
+            while (rs.next()) {
+                Map<String, Object> row = new HashMap<>();
+                for (int i = 1; i <= columnCount; i++) {
+                    String columnName = metaData.getColumnName(i);
+                    row.put(columnName, rs.getObject(i));
+                }
+                rows.add(row);
+            }
+    
+            // Converte a lista de linhas para JSON usando Gson
+            return gson.toJson(rows);
+        }
     }
 
     public String postPedido(boolean ativo, String idUsuario, long endEntrega, long idPagamento) throws SQLException {
@@ -91,8 +165,31 @@ public class Sql {
     }
 
     // Métodos para a tabela "item"
+    // http://localhost:8080/item
     public String getItens() throws SQLException {
-        return get("SELECT * FROM item;");
+        String query = "SELECT * FROM item;";
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+    
+            Gson gson = new Gson();
+            ResultSetMetaData metaData = rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+    
+            // Cria uma lista de mapas para representar as linhas
+            List<Map<String, Object>> rows = new ArrayList<>();
+    
+            while (rs.next()) {
+                Map<String, Object> row = new HashMap<>();
+                for (int i = 1; i <= columnCount; i++) {
+                    String columnName = metaData.getColumnName(i);
+                    row.put(columnName, rs.getObject(i));
+                }
+                rows.add(row);
+            }
+    
+            // Converte a lista de linhas para JSON usando Gson
+            return gson.toJson(rows);
+        }
     }
 
     public String postItem(String nome, String descricao, double preco, long quantidade, long idPedido) throws SQLException {
@@ -118,8 +215,31 @@ public class Sql {
     }
 
     // Métodos para a tabela "pagamento"
+    // http://localhost:8080/pagamento
     public String getPagamentos() throws SQLException {
-        return get("SELECT * FROM pagamento;");
+        String query = "SELECT * FROM pagamento;";
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+    
+            Gson gson = new Gson();
+            ResultSetMetaData metaData = rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+    
+            // Cria uma lista de mapas para representar as linhas
+            List<Map<String, Object>> rows = new ArrayList<>();
+    
+            while (rs.next()) {
+                Map<String, Object> row = new HashMap<>();
+                for (int i = 1; i <= columnCount; i++) {
+                    String columnName = metaData.getColumnName(i);
+                    row.put(columnName, rs.getObject(i));
+                }
+                rows.add(row);
+            }
+    
+            // Converte a lista de linhas para JSON usando Gson
+            return gson.toJson(rows);
+        }
     }
 
     public String postPagamento(long tipoPagamento, String numCartao, String cvv, String apelidoCartao, String idUsuario) throws SQLException {
