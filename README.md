@@ -6,6 +6,7 @@ O Protótipo Pizzaria utiliza o framework React, linguagem Javascript, bibliotec
 
 Para a inicialização local do Front-end, é preciso estar no diretório raiz desse repositório (Protoripo_Pizzaria_2025_1) e rodar os seguintes comandos no terminal:
 - npm i vite
+- npm i axios
 - npm run dev
 
 A aplicação estara rodando na porta 5173. Para abri-la pelo navegador, digite "o" e aperte enter no terminal, ou clique no link localhost. Para interrompê-la, digite "q" no terminal e clique em "enter".
@@ -15,3 +16,5 @@ A aplicação estara rodando na porta 5173. Para abri-la pelo navegador, digite 
 O Back End do projeto está localizado [neste repositório](https://github.com/catfmcastro/Prototipo_Pizzaria_BackEnd_2025_1.git).
 
 Para a inicialização local do Back End, é preciso instalar as duas bibliotecas [PostgreeSQL JDBC Driver versão 42.7.5](https://jdbc.postgresql.org/download/) e [Gson 2.13.1](https://mvnrepository.com/artifact/com.google.code.gson/gson/2.13.1). Os arquivos .jar dessas bibliotecas devem ser adicionados às bibliotecas referenciadas no projeto em Java, pelo VS Code.
+
+Uma vez instaladas, é preciso apenas compilar o arquivo Banco.java.
