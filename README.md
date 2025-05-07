@@ -8,12 +8,10 @@ Para a inicialização local do Front-end, é preciso estar no diretório raiz d
 - npm i vite
 - npm run dev
 
-A aplicação estara rodando na porta 5173. Para abri-la pelo navegador, digite "o" e aperte enter no terminal, ou clique no link localhost. Para interrompê-la, digite "q" no terminal e clique em enter.
+A aplicação estara rodando na porta 5173. Para abri-la pelo navegador, digite "o" e aperte enter no terminal, ou clique no link localhost. Para interrompê-la, digite "q" no terminal e clique em "enter".
 
-## Banco de Dados Neon
-O banco de dados está hosteado no [Neon]
+## Inicialização local do Back End
 
-Para a inicialização local do banco de dados, é preciso acessar o [Neon](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) versão 17.4 e acessar o PgAdmin. Depois, cria-se uma instância de banco de dados e rodar o script em SQL presente no arquivo "script.sql".
+O Back End do projeto está localizado [neste repositório](https://github.com/catfmcastro/Prototipo_Pizzaria_BackEnd_2025_1.git).
 
-## Download de Dependências
-Para o funcionamento pleno da aplicação, é preciso instalar o [PostgreeSQL JDBC Driver](https://jdbc.postgresql.org/download/) na versão 42.7.5 e adicionar nas bibliotecas referênciadas pelo VS Code.
+Para a inicialização local do Back End, é preciso instalar as duas bibliotecas [PostgreeSQL JDBC Driver versão 42.7.5](https://jdbc.postgresql.org/download/) e [Gson 2.13.1](https://mvnrepository.com/artifact/com.google.code.gson/gson/2.13.1). Os arquivos .jar dessas bibliotecas devem ser adicionados às bibliotecas referenciadas no projeto em Java, pelo VS Code.
