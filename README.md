@@ -10,8 +10,10 @@ Para a inicialização local do Front-end, é preciso estar no diretório raiz d
 
 A aplicação estara rodando na porta 5173. Para abri-la pelo navegador, digite "o" e aperte enter no terminal, ou clique no link localhost. Para interrompê-la, digite "q" no terminal e clique em enter.
 
-## Inicialização Local do Banco de Dados
-Para a inicialização local do banco de dados, é preciso instalar o [PostgreeSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) versão 17.4 e acessar o PgAdmin. Depois, cria-se uma instância de banco de dados e rodar o script em SQL presente no arquivo "script.sql".
+## Banco de Dados Neon
+O banco de dados está hosteado no [Neon]
 
-# Download de Dependências
+Para a inicialização local do banco de dados, é preciso acessar o [Neon](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) versão 17.4 e acessar o PgAdmin. Depois, cria-se uma instância de banco de dados e rodar o script em SQL presente no arquivo "script.sql".
+
+## Download de Dependências
 Para o funcionamento pleno da aplicação, é preciso instalar o [PostgreeSQL JDBC Driver](https://jdbc.postgresql.org/download/) na versão 42.7.5 e adicionar nas bibliotecas referênciadas pelo VS Code.

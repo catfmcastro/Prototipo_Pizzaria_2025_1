@@ -4,6 +4,12 @@ import axios from "axios";
 // todo get pedido
 // todo post pedido
 // todo get itens
+// export const getItens = async (user_id, descr, foto, habito_id) => {
+//   return await axios.post(
+//     `http://localhost:4567/postcadastro?descricao=${descr}&foto=${foto}&habito_id=${habito_id}&user_id=${user_id}`
+//   );
+// };
+
 // todo get pagamento
 
 // pega todos os posts do user
