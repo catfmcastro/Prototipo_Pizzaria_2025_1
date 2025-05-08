@@ -9,6 +9,12 @@ import axios from "axios";
 export const getItens = async () => {
     return await axios.get (`http://localhost:8080/item`);
 }
+
+// get user
+// export const getUser = async () => {
+//     return await axios.get();
+// }
+
 // export const getItens = async (user_id, descr, foto, habito_id) => {
 //   return await axios.post(
 //     `http://localhost:4567/postcadastro?descricao=${descr}&foto=${foto}&habito_id=${habito_id}&user_id=${user_id}`

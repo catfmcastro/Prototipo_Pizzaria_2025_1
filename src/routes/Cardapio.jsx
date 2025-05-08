@@ -13,39 +13,7 @@ import { getItens } from "../hooks/Services";
 
 function Cardapio() {
   const [itens, setItens] = useState([]);
-  const itens2 = [
-    {
-      id_item: 1,
-      nome: "Pizza Margherita",
-      descricao: "Queijo, tomate e manjericão",
-      preco: 39.9,
-    },
-    {
-      id_item: 2,
-      nome: "Pizza Pepperoni",
-      descricao: "Queijo, molho de tomate e pepperoni",
-      preco: 45.9,
-    },
-    {
-      id_item: 3,
-      nome: "Coca-Cola 2L",
-      descricao: "Bebida gelada",
-      preco: 9.9,
-    },
-    {
-      id_item: 4,
-      nome: "Batata Frita",
-      descricao: "Porção de batata frita crocante",
-      preco: 15.9,
-    },
-    {
-      id_item: 5,
-      nome: "Pizza Quatro Queijos",
-      descricao: "Queijo mussarela, parmesão, gorgonzola e provolone",
-      preco: 49.9,
-    },
-  ];
-
+  
   // buscar itens da API
   useEffect(() => {
     const fetchItens = async () => {
