@@ -24,6 +24,23 @@ function Perfil() {
     senha: "senha",
   });
 
+  // cosnt [user, setUser] = useState([]);  
+
+  //   // buscar itens da API
+  //   useEffect(() => {
+  //     const fetchUser = async () => {
+  //       try {
+  //         const response = await getUser();
+  //         setUser(response.data);
+  //         console.log(user)
+  //       } catch (error) {
+  //         console.error("Erro ao buscar usuário:", error);
+  //       }
+  //     };
+  
+  //     fetchUser();
+  //   }, []);
+
   // Estado para controlar o modo de edição
   const [isEditing, setIsEditing] = useState(false);
 
