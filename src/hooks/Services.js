@@ -11,9 +11,9 @@ export const getItens = async () => {
 }
 
 // get user
-// export const getUser = async () => {
-//     return await axios.get();
-// }
+export const getUser = async () => {
+    return await axios.get(`http://localhost:8080/usuario`);
+}
 
 // export const getItens = async (user_id, descr, foto, habito_id) => {
 //   return await axios.post(
