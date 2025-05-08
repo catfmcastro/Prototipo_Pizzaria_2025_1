@@ -33,9 +33,8 @@ function Perfil() {
     const fetchUser = async () => {
       try {
         const response = await getUser();
-        setUser(response.data);
+        setUser(response.data[0]);
 
-        console.log("dados encontrados: " + response.data);
       } catch (error) {
         console.error("Erro ao buscar usuário:", error);
       }
