@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -10,27 +10,92 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import Navbar from "../components/form/Navbar";
+import {
+  getEndereco,
+  getItens,
+  getPagamento,
+  getPedido,
+} from "../hooks/Services";
 
 function Pedido() {
   const [currentTab, setCurrentTab] = useState("meuPedido"); // Estado para alternar entre as abas
   const [selectedPayment, setSelectedPayment] = useState(""); // Estado para o método de pagamento
 
-  // Dados estáticos do pedido (substitua por dados reais da API)
-  const pedidoItens = [
-    { id: 1, nome: "Pizza Margherita", quantidade: 1, preco: 39.9 },
-    { id: 2, nome: "Coca-Cola 2L", quantidade: 2, preco: 9.9 },
-  ];
+  // Estados para armazenar os dados da API
+  const [itens, setItens] = useState([]);
+  const [pedido, setPedido] = useState(null);
+  const [pagamento, setPagamento] = useState(null);
+  const [endereco, setEndereco] = useState(null);
 
-  const total = pedidoItens.reduce(
+  // Buscar itens da API
+  useEffect(() => {
+    const fetchItens = async () => {
+      try {
+        const response = await getItens();
+        setItens(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar itens:", error);
+      }
+    };
+
+    fetchItens();
+  }, []);
+
+  // Buscar pedido da API
+  useEffect(() => {
+    const fetchPedido = async () => {
+      try {
+        const response = await getPedido();
+        setPedido(response.data[0]); // Assume que o pedido é o primeiro item do array
+      } catch (error) {
+        console.error("Erro ao buscar pedido:", error);
+      }
+    };
+    fetchPedido();
+  }, []);
+
+  // Buscar endereço da API
+  useEffect(() => {
+    const fetchEndereco = async () => {
+      try {
+        const response = await getEndereco();
+        setEndereco(response.data[0]); // Assume que o endereço é o primeiro item do array
+      } catch (error) {
+        console.error("Erro ao buscar endereço:", error);
+      }
+    };
+
+    fetchEndereco();
+  }, []);
+
+  // Buscar pagamento da API
+  useEffect(() => {
+    const fetchPagamento = async () => {
+      try {
+        const response = await getPagamento();
+        setPagamento(response.data[0]); // Assume que o pagamento é o primeiro item do array
+      } catch (error) {
+        console.error("Erro ao buscar pagamento:", error);
+      }
+    };
+
+    fetchPagamento();
+  }, []);
+
+  // Calcular o total do pedido
+  const total = itens.reduce(
     (acc, item) => acc + item.preco * item.quantidade,
     0
   );
 
-  const pagamentos = [
-    { label: "Crédito", value: "1" },
-    { label: "Débito", value: "2" },
-    { label: "Pix", value: "3" },
-  ];
+  if (!pedido || !pagamento || !endereco || itens.length === 0) {
+    return (
+      <>
+        <Navbar />
+        <div>Carregando...</div>
+      </>
+    ); // Renderiza um estado de carregamento enquanto os dados não são carregados
+  }
 
   return (
     <>
@@ -53,7 +118,7 @@ function Pedido() {
               Itens do Pedido
             </Heading>
             <Stack spacing={4}>
-              {pedidoItens.map((item) => (
+              {itens.map((item) => (
                 <Flex key={item.id} justify="space-between" align="center">
                   <Text fontWeight="bold">{item.nome}</Text>
                   <Text>
@@ -62,10 +127,16 @@ function Pedido() {
                 </Flex>
               ))}
             </Stack>
-            <Flex justify="space-between" fontWeight="bold">
+            <Flex justify="space-between" fontWeight="bold" mt={4}>
               <Text>Total:</Text>
               <Text>R$ {total.toFixed(2)}</Text>
             </Flex>
+            <Heading as="h2" size="md" mt={6} mb={4}>
+              Endereço de Entrega
+            </Heading>
+            <Text>{`${endereco.rua}, ${endereco.numero} - ${endereco.bairro}`}</Text>
+            <Text>{`CEP: ${endereco.cep}`}</Text>
+            <Text>{`Complemento: ${endereco.complemento}`}</Text>
             <Button
               colorScheme="red"
               mt={6}
@@ -88,29 +159,32 @@ function Pedido() {
             boxShadow="md"
           >
             <Heading as="h2" size="md" mb={4}>
-              Escolha o Método de Pagamento
+              Informações de Pagamento
             </Heading>
-
-            <RadioGroup.Root defaultValue="1">
-              <HStack gap="6">
-                {pagamentos.map((pagamento) => (
-                  <RadioGroup.Item
-                    key={pagamento.value}
-                    value={pagamento.value}
-                  >
-                    <RadioGroup.ItemHiddenInput />
-                    <RadioGroup.ItemIndicator />
-                    <RadioGroup.ItemText>{pagamento.label}</RadioGroup.ItemText>
-                  </RadioGroup.Item>
-                ))}
-              </HStack>
-            </RadioGroup.Root>
-
+            <Stack spacing={4}>
+              <Text>
+                <strong>Tipo de Pagamento:</strong>{" "}
+                {pagamento.tipo_pagamento === 1
+                  ? "Crédito"
+                  : pagamento.tipo_pagamento === 2
+                    ? "Débito"
+                    : "Pix"}
+              </Text>
+              <Text>
+                <strong>Apelido do Cartão:</strong> {pagamento.apelido_cartao}
+              </Text>
+              <Text>
+                <strong>Número do Cartão:</strong> **** **** ****{" "}
+                {pagamento.num_cartao.slice(-4)}
+              </Text>
+              <Text>
+                <strong>CVV:</strong> {pagamento.cvv}
+              </Text>
+            </Stack>
             <Button
               colorScheme="red"
               mt={6}
               w="full"
-              isDisabled={!selectedPayment}
               onClick={() => alert("Pedido Finalizado!")}
               bg={"mustard"}
             >

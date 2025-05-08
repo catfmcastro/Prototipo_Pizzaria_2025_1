@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// todo getperfil
 // todo get pedido
 // todo post pedido
 // todo get pagamento
@@ -15,28 +14,17 @@ export const getUser = async () => {
     return await axios.get(`http://localhost:8080/usuario`);
 }
 
-// export const getItens = async (user_id, descr, foto, habito_id) => {
-//   return await axios.post(
-//     `http://localhost:4567/postcadastro?descricao=${descr}&foto=${foto}&habito_id=${habito_id}&user_id=${user_id}`
-//   );
-// };
+// get pedido
+export const getPedido = async () => {
+    return await axios.get(`http://localhost:8080/pedido`);
+}
 
+// get endereco
+export const getEndereco = async () => {
+  return await axios.get(`http://localhost:8080/endereco`);
+};
 
-// pega todos os posts do user
-// export const getPost = async (user_id) => {
-//   return await axios.get(
-//     `http://localhost:4567/postusuario?user_id=${user_id}`
-//   );
-// };
-
-// // criar post
-// export const postar = async (user_id, descr, foto, habito_id) => {
-//   return await axios.post(
-//     `http://localhost:4567/postcadastro?descricao=${descr}&foto=${foto}&habito_id=${habito_id}&user_id=${user_id}`
-//   );
-// };
-
-// // deletar post
-// export const deletePost = async (id) => {
-//   return await axios.delete(`http://localhost:4567/postdelete?id=${id}`);
-// };
+// get pagamento
+export const getPagamento = async () => {
+  return await axios.get(`http://localhost:8080/pagamento`);
+};
